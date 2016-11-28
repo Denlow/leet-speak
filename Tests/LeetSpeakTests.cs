@@ -34,7 +34,7 @@ namespace LeetSpeak
       leetWord.WordToArray(leetWord.GetUserWord());
       leetWord.LeetTranslator(leetWord.GetUserArray());
 
-      Assert.Equal(true, leetWord.CheckForE_To_3(leetWord.GetLeetWord()));
+      Assert.Equal(true, leetWord.CheckForTranslation(leetWord.GetLeetWord()));
     }
   }
 }

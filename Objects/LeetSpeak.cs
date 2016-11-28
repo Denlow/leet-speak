@@ -35,9 +35,9 @@ namespace LeetSpeak
       }
     }
 
-    public bool CheckForE_To_3(string word)
+    public bool CheckForTranslation(string word)
     {
-      if(word.Contains('3'))
+      if(word.Contains('3') || word.Contains('0') || word.Contains('1'))
       {
         return true;
       }
@@ -61,8 +61,17 @@ namespace LeetSpeak
         {
           array[x] = '3';
         }
-        _leetWord = string.Join("", array);
+        else if(array[x] == 'o')
+        {
+          array[x] = '0';
+        }
+        else if(array[x] == 'I')
+        {
+          array[x] = '1';
+        }
       }
+      _leetWord = string.Join("", array);
+      Console.WriteLine(_leetWord);
       return _leetWord;
     }
 
