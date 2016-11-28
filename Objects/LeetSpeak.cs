@@ -37,7 +37,7 @@ namespace LeetSpeak
 
     public bool CheckForTranslation(string word)
     {
-      if(word.Contains('3') || word.Contains('0') || word.Contains('1'))
+      if(word.Contains('3') || word.Contains('0') || word.Contains('1') || word.Contains('z'))
       {
         return true;
       }
@@ -68,6 +68,10 @@ namespace LeetSpeak
         else if(array[x] == 'I')
         {
           array[x] = '1';
+        }
+        else if(array[x] == 's' && x != 0)
+        {
+          array[x] = 'z';
         }
       }
       _leetWord = string.Join("", array);
