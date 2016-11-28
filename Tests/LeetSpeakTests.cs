@@ -1,4 +1,7 @@
 using Xunit;
+using System.Collections.Generic;
+using System;
+
 
 namespace LeetSpeak
 {
@@ -9,6 +12,7 @@ namespace LeetSpeak
     {
       LeetSpeak leetWord = new LeetSpeak();
       leetWord.SetUserWord();
+
       Assert.Equal(true, leetWord.CheckUserWord());
     }
 
@@ -20,6 +24,17 @@ namespace LeetSpeak
       leetWord.WordToArray(leetWord.GetUserWord());
 
       Assert.Equal(true, leetWord.CheckArray());
+    }
+
+    [Fact]
+    public void checkTranslation_toLeet()
+    {
+      LeetSpeak leetWord = new LeetSpeak();
+      leetWord.SetUserWord();
+      leetWord.WordToArray(leetWord.GetUserWord());
+      leetWord.LeetTranslator(leetWord.GetUserArray());
+
+      Assert.Equal(true, leetWord.CheckForE_To_3(leetWord.GetLeetWord()));
     }
   }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System;
 
 namespace LeetSpeak
@@ -34,12 +35,36 @@ namespace LeetSpeak
       }
     }
 
+    public bool CheckForE_To_3(string word)
+    {
+      if(word.Contains('3'))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
     public char[] WordToArray(string word)
     {
       _userWordArray = word.ToCharArray();
       return _userWordArray;
     }
 
+    public string LeetTranslator(char[] array)
+    {
+      for(int x = 0; x < array.Length; x++)
+      {
+        if(array[x] == 'e')
+        {
+          array[x] = '3';
+        }
+        _leetWord = string.Join("", array);
+      }
+      return _leetWord;
+    }
 
     public string GetUserWord()
     {
@@ -54,6 +79,11 @@ namespace LeetSpeak
     public char[] GetUserArray()
     {
       return _userWordArray;
+    }
+
+    public string GetLeetWord()
+    {
+      return _leetWord;
     }
   }
 }
